@@ -21,9 +21,12 @@ Port : 1 is open.
 Port : 2 is open.
 Port : ... is open.
 Port : n is open.
+# ^ ALL OPEN PORTS SHOWN
+
 $ docker-compose exec scanner python port_scanner.py
 Port : 22 is open.
 Port : 80 is open.
+# ^ REASONABLE OPEN PORTS SHOWN
 ```
 
 # With `docker`
@@ -34,9 +37,12 @@ Port : 1 is open.
 Port : 2 is open.
 Port : ... is open.
 Port : n is open.
+# ^ ALL OPEN PORTS SHOWN
+
 ❯ docker run  port-scanner python port_scanner.py
 104.237.143.20
 Port : 22 is open.
 Port : 165 is open.
 Port : 80 is open.
+# ^ REASONABLE OPEN PORTS SHOWN
 ```
