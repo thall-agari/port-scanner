@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  scanner:
+#    network_mode: host
+    build:
+#      network: host
+      context: .
+    command: sh -c "
+      echo 'Hello from scanner!'
+      && tail -F /dev/null
+      "
+    restart: always
+    volumes:
+      - ./:/scanner
+    tty: true
+    stdin_open: true
