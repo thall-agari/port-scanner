@@ -13,7 +13,7 @@ and `network: host` on/off seems to have no effect
 # Question
 Why do I need to run the program multiple times within the container to get real values?
 
-# Setup
+# With `docker-compose`
 ```
 $ docker-compose up
 $ docker-compose exec scanner python port_scanner.py
@@ -23,5 +23,20 @@ Port : ... is open.
 Port : n is open.
 $ docker-compose exec scanner python port_scanner.py
 Port : 22 is open.
+Port : 80 is open.
+```
+
+# With `docker`
+```
+❯ docker build -t port-scanner:latest -f Dockerfile .
+❯ docker run --network host port-scanner python port_scanner.py
+Port : 1 is open.
+Port : 2 is open.
+Port : ... is open.
+Port : n is open.
+❯ docker run  port-scanner python port_scanner.py
+104.237.143.20
+Port : 22 is open.
+Port : 165 is open.
 Port : 80 is open.
 ```
